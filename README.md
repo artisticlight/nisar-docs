@@ -28,9 +28,6 @@ Source for the public documentation of the NASA-ISRO Synthetic Aperture Radar (N
       </details>
    1. Push changes to your `main` branch
    1. Preview the rendered site at `https://{github_user_id}.github.io/nisar-docs/`
-
-## Propose Changes
-
 1. Make and commit your changes
 1. Push changes to your fork in GitHub
 1. Make sure your branch is synced and up to date with `ua-asf/nisar-docs:main`
