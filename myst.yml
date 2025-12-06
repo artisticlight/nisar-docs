@@ -32,6 +32,7 @@ project:
         - file: processing-levels/level3.md
     - file: data-products/index.md
       children:
+        - file: data-products/overview.md
         - file: data-products/l0b-rrsd.md
         - file: data-products/l1-rslc.md
         - file: data-products/l2-gslc.md
@@ -48,14 +49,9 @@ project:
         - file: data-products/software-support.md
     - file: applications/index.md
       children:
+        - file: applications/overview.md
         - file: applications/amplitude.md
         - file: applications/phase.md
-        - file: applications/ecosystem-applications.md
-        - file: applications/geologic-land-hazard-monitoring.md
-        - file: applications/critical-infrastructure-monitoring.md
-        - file: applications/maritime-coastal-ocean-applications.md
-        - file: applications/hydrology-underground-reservoirs.md
-        - file: applications/cryosphere.md
     - file: getting-nisar-data.md
     - file: user-support/index.md
       children:

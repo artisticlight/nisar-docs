@@ -1,4 +1,0 @@
-# Cryosphere
-
-* Glaciology  
-* Permafrost
