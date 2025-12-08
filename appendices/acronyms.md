@@ -29,6 +29,7 @@
 | GDS | Ground Data System |
 | GIS | Geographic Information System |
 | GMTED | Global Multi-resolution Terrain Elevation Data |
+| GNSS | Global Navigation Satellite System |
 | GOFF | Geocoded Pixel Offsets (also as L2_GOFF) |
 | GPU | Graphics Processing Unit |
 | GSLC | Geocoded Single Look Complex (also as L2_GSLC) |
