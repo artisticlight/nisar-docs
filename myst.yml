@@ -72,3 +72,5 @@ site:
   template: book-theme
   options:
     logo_text: "NISAR User Guide"
+  parts:
+    primary_sidebar_footer: ''
