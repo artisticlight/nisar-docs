@@ -68,6 +68,14 @@ project:
             - file: appendices/naming-conventions/raw.md
             - file: appendices/naming-conventions/single.md
             - file: appendices/naming-conventions/interferometric.md
+  abbreviations:
+    DEM: Digital Elevation Model
+    GCOV: Geocoded Polarimetric Covariance
+    NISAR: NASA-ISRO Synthetic Aperture Radar
+    NRB: Normalized Radar Backscatter
+    RTC: Radiometric Terrain Correction; Radiometrically Terrain-Corrected
+    UTM: Universal Transverse Mercator
+    RSLC: Range Doppler Single Look Complex
 site:
   template: book-theme
   options:
