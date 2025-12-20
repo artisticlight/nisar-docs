@@ -10,14 +10,9 @@ project:
       enabled: true
   toc:
     - file: index.md
-    - title: Introduction
-      children:
-        - file: introduction/history.md
-        - file: introduction/scientific-objectives.md
-        - file: introduction/about-jpl.md
-        - file: introduction/about-asf.md
     - title: About NISAR
       children:
+        - file: about-nisar/nisar-intro.md
         - file: about-nisar/instrument.md
         - file: about-nisar/frequencies-polarization.md
         - file: about-nisar/atbd.md
