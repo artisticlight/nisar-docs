@@ -1,3 +1,3 @@
 # Earthdata Search
 
-[#TODO: Populate this document]
+<!-- TODO: Populate this document -->

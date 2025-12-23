@@ -1,6 +1,6 @@
 # Access Overview
 
-[#TODO: Introductory Text (and fill in all the sections)]
+<!-- TODO: Introductory Text (and fill in all the sections) -->
 
 ## Map-based Web Applications
 

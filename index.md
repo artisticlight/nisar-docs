@@ -6,13 +6,13 @@ NISAR's dual-band radar systematically images the Earth's surface, regardless of
 
 All NISAR science data is freely available and open to the public, consistent with the long-standing NASA Earth Science open data policy.
 
-This site aims to help those who research and monitor the Earth find all the information they need to know about accessing and working with NISAR data in one place. 
+This guide aims to help those who research and monitor the Earth find all the information they need to know about accessing and working with NISAR data in one place. 
 
-:::{image} /assets/nisar_satellite.jpg
-:label: nisar-satellite
-:title: [NISAR Satellite in Earth Orbit (Artist's Concept)](https://nisar.jpl.nasa.gov/resources/206/nisar-satellite-in-earth-orbit-artists-concept/)
+:::{image} assets/nisar_satellite.jpg
+:name: nisar-satellite
 :::
 
 
 ![NISAR satellite](assets/nisar_satellite.jpg 'NISAR satellite')
-**Source:** https://nisar.jpl.nasa.gov/resources/206/nisar-satellite-in-earth-orbit-artists-concept/
+
+[NISAR Satellite in Earth Orbit (Artist's Concept)](https://nisar.jpl.nasa.gov/resources/206/nisar-satellite-in-earth-orbit-artists-concept/)

@@ -15,6 +15,12 @@ One of the top priorities identified in this survey was to gain data and insight
 
 Refer to NASA's [NISAR Mission](https://science.nasa.gov/mission/nisar/) website for more information.
 
+```{image} ../assets/nisar-mission-page.png
+:name: nisar-mission-page
+:alt: NASA NISAR Mission Website Image
+:target: @nisar_mission_page
+```
+
 ### NISAR Science Objectives
 
 The [NISAR Mission Science Users' Handbook (2025)](@nisarMissionHandbook2025) defines the key scientific objectives as follows:
@@ -32,7 +38,13 @@ The [NASA-ISRO SAR (NISAR) Mission Science Users' Handbook](@nisarMissionHandboo
 
 The second edition of this handbook, published in 2025, has superseded the previous edition, published in 2019, and should be used instead of the older publication.
 
-![NISAR Handbook](../assets/nisar-handbook-v2-cover.png)
+```{image} ../assets/nisar-handbook-v2-cover.png
+:name: nisar-handbook-cover
+:alt: NASA-ISRO SAR (NISAR) Mission Science Users' Handbook Image
+:target: @nisarMissionHandbook2025
+```
+
+[NASA-ISRO SAR (NISAR) Mission Science Users' Handbook](@nisarMissionHandbook2025)
 
 ### Jet Propulsion Laboratory
 
@@ -62,7 +74,7 @@ The S-band SAR (S-SAR) instrument, developed in a collaboration between NASA and
 
 ### Frequencies
 
-NISAR is equipped to acquire data in two slightly different frequencies. @tbl:areas-html summarizes the frequency A and the frequency B settings that define the acquisition modes. For interferometric NISAR products, only frequency A data are used. All other NISAR products can be acquired in a combination of frequency A and frequency B [#TODO: Clarify this statement].
+NISAR is equipped to acquire data in two slightly different frequencies. @tbl:areas-html summarizes the frequency A and the frequency B settings that define the acquisition modes. For interferometric NISAR products, only frequency A data are used. All other NISAR products can be acquired in a combination of frequency A and frequency B. <!-- TODO: Clarify this statement -->
 
 :::{table} NISAR acquisition modes
 :label: tbl:areas-html

@@ -36,10 +36,10 @@ project:
         - file: data-products/supporting-products.md
         - file: data-products/data-format.md
         - file: data-products/metadata.md
-        - file: data-products/
-        - file: about-nisar/product-specification.md
-        - file: about-nisar/atbd.md
-        - file: about-nisar/data-use-citation-guidance.md
+        - title: Documentation
+          children:
+            - file: data-products/product-specification.md
+            - file: data-products/atbd.md
     - title: Accessing NISAR Data
       children:
         - file: accessing-nisar/access-overview.md
@@ -56,26 +56,22 @@ project:
       children:
         - file: tutorials/tutorials-overview.md
         - file: tutorials/storymaps.md
+        - file: tutorials/python-cookbooks.md
+        - file: tutorials/mission-homepage-tutorials.md
     - title: Applications
       children:
-        - file: applications/overview.md
+        - file: applications/applications-overview.md
         - file: applications/amplitude.md
         - file: applications/phase.md
     - file: getting-nisar-data.md
     - title: User Support
       children:
         - file: user-support/documents.md
-        - file: user-support/mission-homepage-tutorials.md
         - file: user-support/earthdata-forum.md
     - title: Appendices
       children:
         - file: appendices/acronyms.md
         - file: appendices/glossary.md
-        - title: Naming Conventions
-          children:
-            - file: appendices/naming-conventions/raw.md
-            - file: appendices/naming-conventions/single.md
-            - file: appendices/naming-conventions/interferometric.md
   abbreviations:
     DEM: Digital Elevation Model
     GCOV: Geocoded Polarimetric Covariance
@@ -87,6 +83,6 @@ project:
 site:
   template: book-theme
   options:
-    logo_text: "NISAR User Guide"
+    logo_text: 'NISAR Data User Guide'
   parts:
     primary_sidebar_footer: ''
