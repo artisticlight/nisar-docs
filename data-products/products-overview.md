@@ -6,7 +6,7 @@ The NASA processing levels used for SAR have somewhat different meanings than th
 
 ## NISAR Product Level Overview
 
-@nisar-product-table illustrates the products that will be generated in association with the NISAR mission, indicating the products used as input. Products through 2 will be produced directly by the mission and archived at ASF, as will the Level 3 Soil Moisture products. 
+@nisar-product-table illustrates the products that will be generated in association with the NISAR mission, indicating the products used as input. Products through Level 2 will be produced directly by the mission and archived at ASF, as will the Level 3 Soil Moisture products. 
 
 The remaining Level 3-4 products in the figure will be produced by the NISAR science team, but only for specific areas used for calibration and validation activities. Some of these cal/val products may be archived and available to the public. The processing workflows for these higher-level products will be made available as Python notebooks as they are validated, allowing users to use these same workflows to generate these scientific products themselves for other locations.
 
