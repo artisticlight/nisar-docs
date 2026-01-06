@@ -46,7 +46,7 @@ Level 2 products are derived from Level 1 products, resampled and geocoded to a 
 
 Level 3 products represent geophysical parameters derived from radar-specific parameters and geocoded to a geographic grid.
 
-- The [Soil Moisture (SME2)](level-3/sme2.md) product contains soil moisture estimates derived from NISAR data using three different algorithms at agricultural field-scale (200m) posting. <!-- TODO: Are they all at 200? Check to make sure the different variables don't have different pixel spacing. --> Soil moisture information can be used for reservoir management, early warning of droughts, irrigation scheduling, and crop yield forecasting.
+- The [Soil Moisture (SME2)](level-3/sme2.md) product contains soil moisture estimates derived from NISAR data using three different algorithms at agricultural field-scale (200m) posting for most regions (the Sahara Desert will be at 500m).  Soil moisture information can be used for reservoir management, early warning of droughts, irrigation scheduling, and crop yield forecasting.
 
 ## Summary
 
