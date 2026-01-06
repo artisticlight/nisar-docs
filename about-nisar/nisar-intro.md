@@ -25,12 +25,12 @@ Refer to NASA's [NISAR Mission](https://science.nasa.gov/mission/nisar/) website
 
 The NISAR Mission Science Users' Handbook [@nisarMissionHandbook2025] defines the key scientific objectives as follows:
 
-*NISAR addresses the needs of Solid Earth, Ecosystems, Cryospheric, and Soil Moisture science disciplines, with a specific focus on the following key scientific objectives to:*
-
-1. *Determine the likelihood of earthquakes, volcanic eruptions, landslides, and land subsidence*  
-2. *Understand the dynamics of carbon storage and uptake in wooded, agricultural, wetland, and permafrost systems*  
-3. *Understand the response of ice sheets to variations in the climate, the interaction of sea ice and climate, and impacts on sea level rise worldwide*
-4. *Constrain global patterns of soil moisture and their temporal variability, across a wide range of land cover types and climate regimes*
+>NISAR addresses the needs of Solid Earth, Ecosystems, Cryospheric, and Soil Moisture science disciplines, with a specific focus on the following key scientific objectives to:
+>
+>1. Determine the likelihood of earthquakes, volcanic eruptions, landslides, and land subsidence
+>2. Understand the dynamics of carbon storage and uptake in wooded, agricultural, wetland, and permafrost systems
+>3. Understand the response of ice sheets to variations in the climate, the interaction of sea ice and climate, and impacts on sea level rise worldwide
+>4. Constrain global patterns of soil moisture and their temporal variability, across a wide range of land cover types and climate regimes
 
 ### NISAR Mission Science Users' Handbook
 
