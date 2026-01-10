@@ -4,7 +4,7 @@ There are many potential usage patterns for NISAR data, from SAR scientists down
 
 ## Accessing NISAR Data
 
-NISAR data can be accessed from cloud storage, either by downloading or using cloud computing approaches to work with the data directly in the cloud. There are map-based user interfaces and programmatic solutions for finding and accessing NISAR data. Refer to the [Accessing NISAR Data](#access-overview) section for more information.
+NISAR data can be accessed from cloud storage, either by downloading or using cloud computing approaches to work with the data directly in the cloud. There are map-based user interfaces and programmatic solutions for finding and accessing NISAR data. Refer to the [Accessing NISAR Data](#nisar-access-overview) section for more information.
 
 ## Processing Software
 
@@ -14,9 +14,11 @@ The NISAR Mission is using ISCE3 functionality to generate the products that are
 
 ## GIS Software
 
-The availability of NISAR [Level 2 (Geocoded)](#level-2--geocoded-products) and [Level 3 (Geophysical)](#level-3--geophysical-products) products makes it easy for users to work with NISAR data in GIS environments. 
+The availability of NISAR [Level 2 (Geocoded)](#level-2-geocoded-products) and [Level 3 (Geophysical)](#level-3-geophysical-products) products makes it easy for users to work with NISAR data in GIS environments. 
 
-The [HDF5 data format](#hdf5) of the NISAR products may be unfamiliar to some users, but there are workflows for adding NISAR layers to GIS projects and performing analysis leveraging existing raster analysis tools. Refer to ASF's [NISAR in GIS](https://www.earthdata.nasa.gov/learn/gis/storymaps/nisar-gis) StoryMap tutorial to learn how to work with NISAR data in ArcGIS Pro, and the [QGIS Visualization/Exploration Tutorials](https://www.earthdata.nasa.gov/learn/tutorials/work-nisar-sample-data#QGISVE) section of the [Work with NISAR Sample Data](https://www.earthdata.nasa.gov/learn/tutorials/work-nisar-sample-data) tutorial for guidance on using NISAR data in QGIS.
+The [HDF5 data format](#hdf5) of the NISAR products may be unfamiliar to some users, but there are workflows for adding NISAR layers to GIS projects and performing analysis leveraging existing raster analysis tools. 
+
+Refer to ASF's [NISAR in GIS](https://www.earthdata.nasa.gov/learn/gis/storymaps/nisar-gis) StoryMap tutorial to learn how to work with NISAR data in ArcGIS Pro, and the [QGIS Visualization/Exploration Tutorials](https://www.earthdata.nasa.gov/learn/tutorials/work-nisar-sample-data#QGISVE) section of the [Work with NISAR Sample Data](https://www.earthdata.nasa.gov/learn/tutorials/work-nisar-sample-data) tutorial for guidance on using NISAR data in QGIS.
 
 ## Programmatic Approaches
 
