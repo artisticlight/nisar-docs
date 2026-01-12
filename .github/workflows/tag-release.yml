@@ -12,7 +12,7 @@ jobs:
     # https://github.com/ASFHyP3/actions#reusable-bump-versionyml
     uses: ASFHyP3/actions/.github/workflows/reusable-bump-version.yml@v0.21.0
     permissions:
-      contents: read
+      contents: write
       pull-requests: read
     secrets:
       USER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
