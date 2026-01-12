@@ -60,9 +60,7 @@ The [asf_search Python package](https://pypi.org/project/asf-search/) allows use
 
 The [ASF Data Search Manual](https://docs.asf.alaska.edu/asf_search/basics/) provides guidance on using the asf_search Python package.
 
-<!-- TODO: uncomment this line (and 2-dash separator above) once the asf_search page is populated -->
-
-[//]: ([Learn more about using asf_search with NISAR datasets!]&#40;asf-search#asf-search-python-package&#41;)
+[Learn more about using asf_search with NISAR datasets!](asf-search#asf-search-python-package)
 
 ### Earthaccess Python Package
 
