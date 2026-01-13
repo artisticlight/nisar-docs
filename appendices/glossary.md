@@ -2,9 +2,8 @@
 
 :::{glossary}
 
-## General
 Full-polarimetric covariance matrix
-: Calculated by
+: The polarimetric covariance matrix $[G_3]$ is then radiometric terrain corrected and geocoded using an area-based projection algorithm, producing the GCOV matrix. Calculated by
     :::{math}
     :enumerated: false
     [G_{3}] =
@@ -14,7 +13,6 @@ Full-polarimetric covariance matrix
     <S_{VV}S^*_{HH}> & <S_{VV}\overline{S}^*_{HV}> & <S_{VV}S^*_{VV}>
     \end{bmatrix}
     :::
-: The polarimetric covariance matrix $[G_3]$ is then radiometric terrain corrected and geocoded using an area-based projection algorithm, producing the GCOV matrix
 
 Geolocation accuracy
 : The NISAR geolocation accuracy can be potentially affected by {term}`tropospheric delay`, {term}`solid earth tides (SET)` and {term}`ionospheric delay` [@yunjun2022].
@@ -39,8 +37,6 @@ Total Electron Content
 Tropospheric delay
 : At altitudes up to ~ 30 km, which forms the troposphere, refractivity is mainly controlled by temperature, water vapor, and dry air partial pressure [@berradaBaby1988]. The zenith hydrostatic delay is ~2.3 m at sea level at typical meteorological conditions, while the zenith wet delay varies from a few mm at the polar region to ∼40 cm at the equatorial region [@boehm2013]. The tropospheric delay is corrected using a static tropospherical model (European Centre for Medium-Range Weather Forecasts) during focusing the raw data.
 
-
-## Radar grid (metadata cube)
 referenceSlantRange / secondarySlantRange
 : The range position of the zero-Doppler grid in maters for each point of the geographical grid of the reference/secondary RSLS
 
@@ -61,10 +57,10 @@ losUnitVectorY
 
 losUnitVectorZ
 : The Up component of the Line-Of-Sight (LOS) unit vector from the target to the sensor in the East-North-Up coordinate system for each point of the geographic grid. The unit vector needs to be derived from the East and North components as:
-:::{math}
-:enumerated: false
-losUnitVectorZ = \sqrt{1 - losUnitVectorX^2 - losUnitVectorY^2}
-:::
+    :::{math}
+    :enumerated: false
+    losUnitVectorZ = \sqrt{1 - losUnitVectorX^2 - losUnitVectorY^2}
+    :::
 
 alongTrackUnitVectorX
 : The East component of the along-track unit vector (projection of the along-track vector at the ground height) in UTM coordinates
