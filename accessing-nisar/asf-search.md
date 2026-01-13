@@ -6,11 +6,11 @@ The `asf_search` package is always under development to add functionality in sup
 
 You can update `asf_search` in a virtual environment with 
 ```
-python -m pip install --upgrade asf-search
+python -m pip install --upgrade asf_search
 ```
 or in a conda environment with
 ```
-conda update asf_search
+conda update asf-search
 ```
 <!-- TODO: Add in minimum asf_search version that allows for NISAR searches -->
 
