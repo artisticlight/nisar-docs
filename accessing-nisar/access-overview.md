@@ -76,6 +76,6 @@ The [earthaccess Python package](https://earthaccess.readthedocs.io/en/stable/) 
 --
 <!-- TODO: uncomment this line (and 2-dash separator above) once the earthaccess page is populated -->
 
-[//]: # ([Learn more about using earthaccess with NISAR datasets!]&#40;earthaccess#earthaccess-python-package&#41;)
+[Learn more about using earthaccess with NISAR datasets!](#earthaccess-package)
 
 <style>section {page-break-before: avoid}</style>
