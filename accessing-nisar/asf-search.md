@@ -14,7 +14,7 @@ conda update asf_search
 ```
 <!-- TODO: Add in minimum asf_search version that allows for NISAR searches -->
 
-To quickly begin exploring NISAR data, search by setting the `dataset` parameter to `'NISAR'` and the `processingLevel` parameter to the four-letter acronym corresponding to your desired product. For example, to search for NISAR GCOV products, use the following command:
+To quickly begin exploring NISAR data, search by setting the `dataset` parameter to `'NISAR'` and the `processingLevel` parameter to the four-letter acronym corresponding to your desired product. For example, to search for NISAR GCOV products, use the following Python code:
 ```python
 results = asf_search.search(dataset='NISAR', processingLevel='GCOV')
 ``` 
