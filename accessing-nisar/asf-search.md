@@ -4,11 +4,11 @@
 
 The `asf_search` package is always under development to add functionality in support of new platforms and products, to manage dependencies, and to comply with security best practices. In particular, NISAR support in `asf_search` will be evolving as more data products are added to the archive and preferred search patterns emerge. We recommend using the latest release of the package whenever possible. 
 
-You can update `asf_search` in a virtual environment with 
+You can update `asf_search` via `pip` with:
 ```
 python -m pip install --upgrade asf_search
 ```
-or in a conda environment with
+or via `conda` with:
 ```
 conda update asf_search
 ```
