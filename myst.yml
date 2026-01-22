@@ -89,6 +89,7 @@ project:
     NRB: Normalized Radar Backscatter
     RTC: Radiometric Terrain Correction; Radiometrically Terrain-Corrected
     SAR: Synthetic Aperture Radar
+    SNR: Signal-to-Noise Ratio
     UTM: Universal Transverse Mercator
     RIFG: Range Doppler Wrapped Interferogram
     ROFF: Range Doppler Pixel Offsets
