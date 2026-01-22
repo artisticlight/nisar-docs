@@ -31,19 +31,19 @@ export AWS_SESSION_TOKEN=AQoDYXdzEJr...<remainder of session token>
    For a full list of exportable variables, see [AWS's Temporary Credentials User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html)
 
 3. Explore the `sds-n-cumulus-prod-nisar-products` S3 bucket to find data of interest. The bucket is organized by product type, then by product. Consult @nisar-naming-conventions to understand the product names to help find what you're looking for.
-    For example, if you want to see all available products, you can use the command
+    For example, if you want to see all available products, you can use the `aws s3 ls` command, such as
     ```
    aws s3 ls s3://sds-n-cumulus-prod-nisar-products/
    ```
    
-4. Open or download data files. For example, you can download the file with
+4. Open or download data files. For example, you can download a GCOV file with the `aws s3 cp` command with 
     ```
-   aws s3 cp s3://sds-n-cumulus-prod-nisar-products/ . 
+   aws s3 cp s3://sds-n-cumulus-prod-nisar-products/NISAR_L2_GCOV_BETA_V1/NISAR_FILENAME.h5 path/to/local/dir 
    ```
 
 ## Limitations
 
-S3 Access for NISAR data is subject to these limitations:
+Please note that S3 Access for NISAR data is subject to these limitations:
 - The temporary credentials only allow access from within the us-west-2 region
 - The temporary credentials expire after one hour. You can refresh [the link in Step 1](https://nisar.asf.earthdatacloud.nasa.gov/s3credentials) for a new set of credentials. 
 - Temporary credentials cannot be used to sync content directly to another S3 bucket
