@@ -1,4 +1,4 @@
-# NISAR Sample Data
+# Available NISAR Data
 
 (nisar-sample-data-jan)=
 ## NISAR Sample Data: January 2026
