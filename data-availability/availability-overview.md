@@ -1,5 +1,7 @@
 # Available NISAR Data
 
+The NISAR L-band sensor has been successfully collecting data, and the calibration-validation process is underway. There is a small collection of sample data generated from NISAR acquisitions that is now available to the public.
+
 (nisar-sample-data-jan)=
 ## NISAR Sample Data: January 2026
 
