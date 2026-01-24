@@ -173,7 +173,7 @@ S3 URL links are available for files listed in Earthdata Search results for NISA
 To copy S3 URLs from Earthdata Search:
 
 1. [Search for the desired NISAR datasets in Earthdata Search](https://search.earthdata.nasa.gov/search?q=nisar%20beta&fpb0=Space-based%20Platforms&fpc0=Earth%20Observation%20Satellites&fps0=NISAR)
-1. Click on the **Download Granule** button for the desired product
+1. Click on the **Download** button for the desired product
 1. Select the **AWS S3 Access** tab
 1. Click the filename to copy the S3 path to your clipboard
 
