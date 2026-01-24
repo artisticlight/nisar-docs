@@ -9,7 +9,7 @@ Data users can request temporary AWS credentials enabling direct access to the d
 
 ## Accessing NISAR Data in S3 Using AWS CLI
 
-Users can request temporary credentials to leverage direct S3 access from other AWS services such as EC2 and Lambda. Access is limited to resources in the us-west-2 (Oregon) region.
+Users can leverage direct S3 access from other AWS services such as EC2 and Lambda. Access is limited to resources in the us-west-2 (Oregon) region.
 
 (s3-creds-step-1)=
 ### 1. Visit https://nisar.asf.earthdatacloud.nasa.gov/s3credentials 
@@ -56,7 +56,7 @@ For a full list of exportable variables, see [AWS's Temporary Credentials User G
 
 ### 3. Find NISAR products of interest
 
-NISAR data is all hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. Each product type has a prefix, and while you cannot list the full bucket contents, you can list the contents of each prefix. Refer to @prefix-structure for more information on the organization of the NISAR bucket.
+NISAR data is all hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. Each product type has a prefix, and while you cannot list the full bucket contents, you can list the contents of each prefix. Refer to @prefix-structure for more information on the organization of the NISAR bucket and a [table of prefixes](#tbl:s3-prefix-list-products) for the NISAR data products.
 
 For example, if you want to see all available GCOV products, you can use this `aws s3 ls` command: 
 ```
@@ -152,5 +152,5 @@ Select an item from the search results, and click on the **copy link icon** next
 
 Please note that S3 Access for NISAR data is subject to these limitations:
 - Temporary credentials only allow access from within the us-west-2 region. Users attempting to access the NISAR S3 bucket from other regions or outside AWS will encounter an `Access Denied` error.
-- Temporary credentials expire after one hour. The expiration time is listed in the temporary credential payload, as shown in [Step 1](#s3-creds-step-1). You can revisit [the temporary credential link](https://nisar.asf.earthdatacloud.nasa.gov/s3credentials) for a new set of credentials. 
+- Temporary credentials expire after one hour. The expiration time is listed in the temporary credential payload, as shown in [Step 1](#s3-creds-step-1). You can revisit [the temporary credential link](https://nisar.asf.earthdatacloud.nasa.gov/s3credentials) for a new set of credentials when they expire. 
 - Temporary credentials cannot be used to copy content directly from the NISAR S3 bucket to another S3 bucket. Users can only download content or use tools that interact with the data directly in S3 storage.
