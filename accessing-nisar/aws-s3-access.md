@@ -158,6 +158,25 @@ To copy S3 URLs from Vertex:
 1. In the right panel, click on the **link icon** next to the desired file
 1. Select **S3 URL** from the drop-down menu to copy the path to your clipboard
 
+### S3 Paths from Earthdata Search
+
+When you search for NISAR data products in [Earthdata Search](https://search.earthdata.nasa.gov/search?q=nisar%20beta&fpb0=Space-based%20Platforms&fpc0=Earth%20Observation%20Satellites&fps0=NISAR), S3 links are available to copy from the search results, as shown in @earthdata-s3-urls. 
+
+```{figure} ../assets/earthdata-s3-links.png
+:label: earthdata-s3-urls
+:alt: Screenshot showing how to copy an S3 URL from Earthdata Search results
+:align: center
+
+S3 URL links are available for files listed in Earthdata Search results for NISAR products.
+```
+
+To copy S3 URLs from Earthdata Search:
+
+1. [Search for the desired NISAR datasets in Earthdata Search](https://search.earthdata.nasa.gov/search?q=nisar%20beta&fpb0=Space-based%20Platforms&fpc0=Earth%20Observation%20Satellites&fps0=NISAR)
+1. Click on the **Download Granule** button for the desired product
+1. Select the **AWS S3 Access** tab
+1. Click the filename to copy the S3 path to your clipboard
+
 (s3-limitations)=
 ## Limitations
 
