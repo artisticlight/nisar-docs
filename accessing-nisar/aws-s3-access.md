@@ -7,9 +7,9 @@ All NISAR data is hosted in [NASA's Earthdata Cloud (EDC)](https://www.earthdata
 
 Data users can request temporary AWS credentials enabling direct access to the data in S3. This supports the use of a wide range of S3-aware tooling for interacting with cloud-hosted data as well as for low-latency and high-throughput data access patterns.
 
-## Accessing NISAR Data in S3 Using AWS CLI
+## Using the AWS CLI to Access NISAR Data 
 
-Users can leverage direct S3 access from other AWS services such as EC2 and Lambda. Access is limited to resources in the us-west-2 (Oregon) region.
+Users can leverage direct S3 access from other AWS services, such as EC2 and Lambda, as long as the resources are in the us-west-2 (Oregon) region.
 
 (s3-creds-step-1)=
 ### 1. Visit https://nisar.asf.earthdatacloud.nasa.gov/s3credentials 
