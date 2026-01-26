@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0]
+
+### Changed
+- Set the overview content for each first-level navigation menu item to display when the menu item is clicked, rather than having a separate overview page included under the expanded menu
+
+### Removed
+- Removed the Software Options page from the Using NISAR Data section
+
 ## [0.1.2]
 
 ### Added

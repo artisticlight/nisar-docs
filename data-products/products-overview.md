@@ -1,3 +1,7 @@
+---
+short_title: Data Products
+---
+
 (data-products-overview)=
 # Data Products Overview
 

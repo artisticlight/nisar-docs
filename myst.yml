@@ -14,9 +14,8 @@ project:
     - file: data-availability/availability-overview.md
 #      children:
 #        - file: data-availability/observation-scenario.md
-    - title: Data Products
+    - file: data-products/products-overview.md
       children:
-        - file: data-products/products-overview.md
         - title: Geophysical Products (Level 3)
           children:
             - file: data-products/level-3/sme2.md
@@ -44,28 +43,24 @@ project:
           children:
             - file: data-products/product-specification.md
             - file: data-products/atbd.md
-    - title: Accessing NISAR Data
+    - file: accessing-nisar/access-overview.md
       children:
-        - file: accessing-nisar/access-overview.md
 #        - file: accessing-nisar/vertex.md
 #        - file: accessing-nisar/earthdata-search.md
         - file: accessing-nisar/asf-search.md
 #        - file: accessing-nisar/earthaccess.md
         - file: accessing-nisar/aws-s3-access.md
-    - title: Using NISAR Data
+    - file: using-nisar/using-overview.md
       children:
-        - file: using-nisar/using-overview.md
-        - file: using-nisar/software-support.md
+#        - file: using-nisar/software-support.md
         - file: using-nisar/data-use-citation-guidance.md
-    - title: NISAR Tutorials
+    - file: tutorials/tutorials-overview.md
       children:
-        - file: tutorials/tutorials-overview.md
         - file: tutorials/storymaps.md
 #        - file: tutorials/python-cookbooks.md
         - file: tutorials/mission-homepage-tutorials.md
-    - title: Applications
+    - file: applications/applications-overview.md
       children:
-        - file: applications/applications-overview.md
         - file: applications/amplitude.md
         - file: applications/phase.md
     - title: User Support
