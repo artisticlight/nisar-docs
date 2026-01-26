@@ -113,31 +113,7 @@ To access a product, the S3 path must contain the NISAR [bucket name](#nisar-s3-
 
 @tbl:s3-prefix-list-products lists the prefix for each of the NISAR data product types, and @tbl:s3-prefix-list-supporting lists the prefix for each of the NISAR supporting data types.
 
-(s3-production-nisar-data)=
-### Production NISAR Data
-
-NISAR data products are hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. This bucket cannot currently be searched from the root, but you can list the contents from each product type prefix onward through the prefix hierarchy.
-
-Here is an example of the S3 path for one of the available GCOV products: 
-
-`s3://sds-n-cumulus-prod-nisar-products/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.h5`
-
-(s3-nisar-browse-imagery)=
-### NISAR Browse Imagery
-
-NISAR browse imagery is hosted in a different bucket than the actual data products. The prefix structure for `sds-n-cumulus-prod-nisar-browse` is the same as for the production NISAR data, but this bucket can be searched from the root directory if desired. 
-
-Within each product name prefix, there are two different browse and thumbnail files available in PNG format. The images displayed on the maps in Vertex and Earthdata Search are the main PNG files. Files tagged with _thumbnail.png are very small images used for applications like the Vertex search results, which require low resolution (100 x 100 pixels).
-
-Here is an example of the S3 path for one of the available GCOV browse images: 
-
-`s3://sds-n-cumulus-prod-nisar-browse/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.png`
-
-(s3-urgent-response)=
-### NISAR Urgent Response
-
-The NISAR mission will produce Urgent Response (UR) products when natural disasters or other major events occur. These products may use less precise orbits in order to make data available as quickly as possible. UR products will be hosted in `sds-n-cumulus-prod-nisar-ur-products`, and will be retained for 30 days, allowing time for a standard product to become available before the UR product is deleted. 
-
+(prefix-tables)=
 ### Prefix Tables
 
 :::{table} NISAR Data Product S3 Prefix List
@@ -165,6 +141,31 @@ The NISAR mission will produce Urgent Response (UR) products when natural disast
 | DEM     | DEM/      |
 
 :::
+
+(s3-production-nisar-data)=
+### Production NISAR Data
+
+NISAR data products are hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. This bucket cannot currently be searched from the root, but you can list the contents from each product type prefix onward through the prefix hierarchy.
+
+Here is an example of the S3 path for one of the available GCOV products: 
+
+`s3://sds-n-cumulus-prod-nisar-products/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.h5`
+
+(s3-nisar-browse-imagery)=
+### NISAR Browse Imagery
+
+NISAR browse imagery is hosted in a different bucket than the actual data products. The prefix structure for `sds-n-cumulus-prod-nisar-browse` is the same as for the production NISAR data, but this bucket can be searched from the root directory if desired. 
+
+Within each product name prefix, there are two different browse and thumbnail files available in PNG format. The images displayed on the maps in Vertex and Earthdata Search are the main PNG files. Files tagged with _thumbnail.png are very small images used for applications like the Vertex search results, which require low resolution (100 x 100 pixels).
+
+Here is an example of the S3 path for one of the available GCOV browse images: 
+
+`s3://sds-n-cumulus-prod-nisar-browse/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.png`
+
+(s3-urgent-response)=
+### NISAR Urgent Response
+
+The NISAR mission will produce Urgent Response (UR) products when natural disasters or other major events occur. These products may use less precise orbits in order to make data available as quickly as possible. UR products will be hosted in `sds-n-cumulus-prod-nisar-ur-products`, and will be retained for 30 days, allowing time for a standard product to become available before the UR product is deleted. 
 
 (finding-s3-paths)=
 ## Finding S3 Paths
