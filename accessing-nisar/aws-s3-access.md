@@ -12,6 +12,15 @@ All NISAR data is hosted in [NASA's Earthdata Cloud (EDC)](https://www.earthdata
 
 Data users can request temporary AWS credentials enabling direct access to the data in S3. This supports the use of a wide range of S3-aware tooling for interacting with cloud-hosted data as well as for low-latency and high-throughput data access patterns.
 
+(nisar-s3-buckets)=
+## NISAR S3 Buckets
+
+There are three S3 buckets associated with the NISAR mission: 
+
+- `sds-n-cumulus-prod-nisar-products` contains the [production data products](#s3-production-nisar-data)
+- `sds-n-cumulus-prod-nisar-browse` contains the [browse imagery](#s3-nisar-browse-imagery) associated with the data products
+- `sds-n-cumulus-prod-nisar-ur-products` will contain [urgent response](#s3-urgent-response) products when/while they are available
+
 ## Using the AWS CLI to Access NISAR Data 
 
 Users can leverage direct S3 access from other AWS services, such as EC2 and Lambda, as long as the resources are in the us-west-2 (Oregon) region.
@@ -61,7 +70,7 @@ For a full list of exportable variables, see [AWS's Temporary Credentials User G
 
 ### 3. Find NISAR products of interest
 
-NISAR data is all hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. Each product type has a prefix, and while you cannot list the full bucket contents, you can list the contents of each prefix. Refer to @prefix-structure for more information about the organization of the NISAR bucket and a [table of prefixes](#tbl:s3-prefix-list-products) for the NISAR data products.
+NISAR production data is all hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. Each product type has a prefix, and while you cannot list the full bucket contents, you can list the contents of each prefix. Refer to @prefix-structure for more information about the organization of the NISAR bucket and a [table of prefixes](#tbl:s3-prefix-list-products) for the NISAR data products and [supporting products](#tbl:s3-prefix-list-supporting).
 
 For example, if you want to list all available GCOV products, you can use this `aws s3 ls` command: 
 ```
@@ -69,6 +78,8 @@ aws s3 ls s3://sds-n-cumulus-prod-nisar-products/NISAR_L2_GCOV_BETA_V1/
 ```
 
 Within each product type prefix, there is a nested prefix for each individual product, with no additional hierarchy for grouping the individual products. Refer to @finding-s3-paths for tools and methods available to help you find specific products of interest.
+
+Note that NISAR browse imagery and NISAR Urgent Response products are [hosted in different buckets](#nisar-s3-buckets) than the production NISAR datasets. 
 
 :::{warning}Direct S3 Access only available within us-west-2
 If you encounter an `Access Denied` error, check to make sure you are in the correct region. Direct S3 access is only available within us-west-2. See @s3-access-limitations.
@@ -92,20 +103,17 @@ aws s3 cp s3://sds-n-cumulus-prod-nisar-products/NISAR_L3_SME2_BETA_V1/NISAR_L3_
 Copying data directly from the NISAR S3 bucket to another S3 bucket is not supported. Users can only download content or use tools that interact with the data directly in S3 storage. See @s3-access-limitations.
 :::
 
+(prefix-structure)=
 ## Prefix Structure
 
-NISAR data is all hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. Each product type has a prefix, then each available product of that product type has an individual product prefix nested inside the product type prefix. 
+Products are stored with the same prefix structure in all three NISAR S3 buckets. Each product type has a prefix, then each available product of that product type has an individual product prefix nested inside the product type prefix. 
+
+To access a product, the S3 path must contain the NISAR [bucket name](#nisar-s3-buckets), the product type prefix, and the individual product prefix, followed by the full filename (including the extension), as illustrated here:  
+`s3://sds-n-cumulus-prod-nisar-BUCKET/`<wbr>`PRODUCT_TYPE_PREFIX/`<wbr>`PRODUCT_NAME_PREFIX/`<wbr>`PRODUCT_NAME.ext`
 
 @tbl:s3-prefix-list-products lists the prefix for each of the NISAR data product types, and @tbl:s3-prefix-list-supporting lists the prefix for each of the NISAR supporting data types.
 
-To access a product, the S3 path must contain the bucket name, the product type prefix, and the individual product prefix, followed by the full filename (including the extension), as illustrated here:
-
-`s3://sds-n-cumulus-prod-nisar-products/`<wbr>`PRODUCT_TYPE_PREFIX/`<wbr>`PRODUCT_NAME_PREFIX/`<wbr>`PRODUCT_NAME.ext`
-
-Here is an example of the S3 path for one of the available GCOV products: 
-
-`s3://sds-n-cumulus-prod-nisar-products/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.h5`
-
+(prefix-tables)=
 ### Prefix Tables
 
 :::{table} NISAR Data Product S3 Prefix List
@@ -134,6 +142,32 @@ Here is an example of the S3 path for one of the available GCOV products:
 
 :::
 
+(s3-production-nisar-data)=
+### Production NISAR Data
+
+NISAR data products are hosted in the `sds-n-cumulus-prod-nisar-products` S3 bucket. This bucket cannot currently be searched from the root, but you can list the contents from each product type prefix onward through the prefix hierarchy.
+
+Here is an example of the S3 path for one of the available GCOV products: 
+
+`s3://sds-n-cumulus-prod-nisar-products/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_`<wbr>`005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.h5`
+
+(s3-nisar-browse-imagery)=
+### NISAR Browse Imagery
+
+NISAR browse imagery is hosted in a different bucket than the actual data products. The prefix structure for `sds-n-cumulus-prod-nisar-browse` is the same as for the production NISAR data, but this bucket can be searched from the root directory if desired. 
+
+Within each product name prefix, there are two different browse and thumbnail files available in PNG format. The images displayed on the maps in Vertex and Earthdata Search are the main PNG files. Files tagged with _thumbnail.png are very small images used for applications like the Vertex search results, which require low resolution (100 x 100 pixels).
+
+Here is an example of the S3 path for one of the available GCOV browse images: 
+
+`s3://sds-n-cumulus-prod-nisar-browse/`<wbr>`NISAR_L2_GCOV_BETA_V1/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001/`<wbr>`NISAR_L2_PR_GCOV_005_172_A_008_2005_DHDH_A_`<wbr>`20251122T024618_20251122T024652_`<wbr>`X05007_N_F_J_001.png`
+
+(s3-urgent-response)=
+### NISAR Urgent Response
+
+The NISAR mission will produce Urgent Response (UR) products when natural disasters or other major events occur. These products may use less precise orbits in order to make data available as quickly as possible. UR products will be hosted in `sds-n-cumulus-prod-nisar-ur-products`, and will be retained for 30 days, allowing time for a standard product to become available before the UR product is deleted. 
+
+(finding-s3-paths)=
 ## Finding S3 Paths
 
 As more data becomes available, you may want to use wildcard searches with the `aws s3 ls` command to find specific products of interest. The product filenames contain a lot of information that can be used to restrict your search, such as track and/or frame numbers, acquisition dates, processing version, beam mode, polarization, and orbit direction. 
