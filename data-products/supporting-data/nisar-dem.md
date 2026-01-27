@@ -14,6 +14,15 @@ The DEM used for NISAR product generation is derived from the [Copernicus DEM 30
 
 :::{warning}Modified for SAR Applications
 Because this DEM has had an ellipsoid correction applied, which is necessary for SAR processing, the elevation values will differ from the source DEM. It should not be used for non-SAR applications, which typically require geoid-based elevations. 
+
+```{figure} ../../assets/ellipsoid-geoid.png
+:label: ellipsoid-geoid
+:alt: Figure illustrating the difference between ellipsoid and geoid heights.
+:align: left
+:width: 50%
+
+Most DEMs are geoid-based, and require a conversion before being used in SAR processing workflows. 
+```
 :::
 
 This dataset allows SAR scientists to generate their own higher-level products from NISAR data using the same input DEM as the mission-generated products. 
@@ -68,7 +77,7 @@ In Earthdata Search, each file is given a title that also includes the projectio
 
 The DEM for NISAR files can be found in Earthdata Search by searching for "NISAR_DEM": [Find Data in Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM)
 
-All three DEM datasets are included in one [NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1) collection. They are accessible through [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), but not currently discoverable in Vertex. The projection is included in the filename, making it easy to restrict searches to a single projection.
+All three DEM datasets are included in one [NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1) collection. They are accessible through [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), but not currently discoverable in Vertex. The projection is included in the title for each DEM file in Earthdata Search, making it easy to restrict searches to a single projection.
 
 Each DEM filename gives an indication of its geographic location, which you can use to locate the tiles you need, but it is easiest to use Earthdata Search to find the necessary tiles for a specific geographic area of interest. To incorporate subsetting into a programmatic workflow, it is useful to leverage @vrt-subsetting.
 
