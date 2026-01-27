@@ -43,7 +43,30 @@ The DEM is provided in three different projections:
 
 The DEM dataset in the WGS84 projection provides global coverage, while the DEM datasets in polar projections are only available for regions beyond 60 degrees north or south.
 
-<!-- #TODO: add a map of the coverage for each DEM dataset -->
+```{figure} ../../assets/dem-extent-4326.png
+:label: dem-extent-4326
+:alt: Map showing extent of coverage by WGS84 DEM for NISAR.
+:align: left
+:width: 75%
+
+Extent of coverage by the WGS84 DEM for NISAR.
+```
+```{figure} ../../assets/dem-extent-3413.png
+:label: dem-extent-3413
+:alt: Map showing extent of coverage by North Polar Stereographic DEM for NISAR.
+:align: left
+:width: 75%
+
+Extent of coverage by the North Polar Stereographic DEM for NISAR.
+```
+```{figure} ../../assets/dem-extent-3031.png
+:label: dem-extent-3031
+:alt: Map showing extent of coverage by South Polar Stereographic DEM for NISAR.
+:align: left
+:width: 75%
+
+Extent of coverage by the South Polar Stereographic DEM for NISAR.
+```
 
 ### DEM Dataset Characteristics
 
