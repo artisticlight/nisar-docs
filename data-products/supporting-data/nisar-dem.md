@@ -22,7 +22,7 @@ This dataset allows SAR scientists to generate their own higher-level products f
 It is important to note that this dataset is _not_ generated from NISAR-acquired data. It is modified from an existing DEM, and used in NISAR data processing workflows. 
 :::
 
-The data are available from NASA's Alaska Satellite Facility Distributed Active Archive Center (ASF DAAC) through Earthdata Search as well as through [direct S3 access](aws-s3-access-overview) within the AWS us-west-2 region.
+The data are available from NASA's Alaska Satellite Facility Distributed Active Archive Center (ASF DAAC) through Earthdata Search as well as through [direct S3 access](#aws-s3-access-overview) within the AWS us-west-2 region.
 
 ## DEM Datasets
 
@@ -70,14 +70,52 @@ The DEM for NISAR files can be found in Earthdata Search by searching for "NISAR
 
 All three DEM datasets are included in one [NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1) collection. They are accessible through [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), but not currently discoverable in Vertex. The projection is included in the filename, making it easy to restrict searches to a single projection.
 
-Each DEM filename gives an indication of its geographic location, which you can use to locate the tiles you need, but it is easiest to use Earthdata Search to find the necessary tiles for a specific geographic area of interest. To incorporate subsetting into a programmatic workflow, it is useful to leverage the [DEM VRT](#dem-vrt-files) files 
+Each DEM filename gives an indication of its geographic location, which you can use to locate the tiles you need, but it is easiest to use Earthdata Search to find the necessary tiles for a specific geographic area of interest. To incorporate subsetting into a programmatic workflow, it is useful to leverage @vrt-subsetting.
 
-(dem-vrt-files)=
-### DEM VRT Files
+(vrt-subsetting)=
+## Subsetting via Global VRT Mosaics
 
-Enables programmatic subsetting to a custom AOI
+A global mosaic is provided for each DEM in the form of a [VRT](https://gdal.org/en/stable/drivers/raster/vrt.html) file. This enables subsetting the global DEM to any specific area of interest while downloading only the needed data.
 
-### S3 File Organization
+The following examples demonstrate subsetting using the [gdalwarp](https://gdal.org/en/stable/programs/gdalwarp.html) utility via the [/vsicurl](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) and [/vsis3](https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files) drivers.
+
+### Subsetting via /vsicurl
+
+GDAL's [/vsicurl](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) driver enables interacting with data files hosted online through a URL. The URLs for the three VRT mosaics are:
+```
+https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG4326/EPSG4326.vrt
+https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG3413/EPSG3413.vrt
+https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG3031/EPSG3031.vrt
+```
+
+1. Create a `.netrc` file containing your Earthdata Login credentials as described in [Creating a .netrc File for Earthdata Login](https://nsidc.org/data/user-resources/help-center/creating-netrc-file-earthdata-login)
+1. Set the following GDAL configuration options via environment variables:
+   ```shell
+   export GDAL_DISABLE_READDIR_ON_OPEN=TRUE
+   export GDAL_HTTP_COOKIEFILE=~/cookies.txt
+   export GDAL_HTTP_COOKIEJAR=~/cookies.txt
+   ```
+1. Run the subsetting command:
+   ```
+   gdalwarp /vsicurl/https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -119.2 34.7 -119.1 34.8
+   ```
+
+### Subsetting via /vsis3
+
+GDAL's [/vsis3](https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files) driver enables interacting with data files hosted in AWS S3. The S3 URIs for the three VRT mosaics are:
+```
+s3://sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG4326/EPSG4326.vrt
+s3://sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG3413/EPSG3413.vrt
+s3://sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG3031/EPSG3031.vrt
+```
+
+1. Configure temporary AWS credentials as described in @aws-s3-access-overview.
+1. Run the subsetting command:
+   ```
+   gdalwarp /vsis3/sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -119.2 34.7 -119.1 34.8
+   ```
+
+## S3 File Organization
 
 While the DEM files are all included in a single collection, they are divided into different S3 prefixes based on their projection. When searching for content directly in S3, the DEM prefix includes a version prefix (v1.2), then a prefix for each different projection: 
 
