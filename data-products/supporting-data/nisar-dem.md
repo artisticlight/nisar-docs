@@ -109,7 +109,7 @@ Each DEM filename gives an indication of its geographic location, which you can 
 
 A global mosaic is provided for each DEM in the form of a [VRT](https://gdal.org/en/stable/drivers/raster/vrt.html) file. This enables subsetting the global DEM to any specific area of interest while downloading only the needed data.
 
-The following examples demonstrate subsetting using the [gdalwarp](https://gdal.org/en/stable/programs/gdalwarp.html) utility via the [/vsicurl](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) and [/vsis3](https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files) drivers.
+The following examples demonstrate subsetting using the [gdalwarp](https://gdal.org/en/stable/programs/gdalwarp.html) utility via the [/vsicurl](https://gdal.org/en/stable/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access) and [/vsis3](https://gdal.org/en/stable/user/virtual_file_systems.html#vsis3-aws-s3-files) drivers. These examples will subset the DEM VRT to a 0.1° x 0.1° region in Death Valley, CA, USA. 
 
 ### Subsetting via /vsicurl
 
@@ -129,7 +129,7 @@ https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG3031/EPSG3031.vrt
    ```
 1. Run the subsetting command:
    ```
-   gdalwarp /vsicurl/https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -119.2 34.7 -119.1 34.8
+   gdalwarp /vsicurl/https://nisar.asf.earthdatacloud.nasa.gov/NISAR/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -116.7 35.9 -116.6 36.0
    ```
 
 ### Subsetting via /vsis3
@@ -144,7 +144,7 @@ s3://sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG3031/EPSG3031.vrt
 1. Configure temporary AWS credentials as described in @aws-s3-access-overview.
 1. Run the subsetting command:
    ```
-   gdalwarp /vsis3/sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -119.2 34.7 -119.1 34.8
+   gdalwarp /vsis3/sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG4326/EPSG4326.vrt out.tif -te -116.7 35.9 -116.6 36.0
    ```
 
 ## S3 File Organization
