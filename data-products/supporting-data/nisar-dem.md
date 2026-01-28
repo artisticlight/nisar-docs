@@ -47,7 +47,6 @@ The DEM dataset in the WGS84 projection provides global coverage, while the DEM 
 :label: dem-extent-4326
 :alt: Map showing extent of coverage by WGS84 DEM for NISAR.
 :align: left
-:width: 75%
 
 Extent of coverage by the WGS84 DEM for NISAR.
 ```
