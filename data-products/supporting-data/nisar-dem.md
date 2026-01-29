@@ -37,9 +37,9 @@ The data are available from NASA's Alaska Satellite Facility Distributed Active 
 
 The DEM is provided in three different projections: 
 
-- WGS84 ([EPSG 4326](https://epsg.io/4326))
-- North Polar Stereographic ([EPSG 3413](https://epsg.io/3413))
-- South Polar Stereographic ([EPSG 3031](https://epsg.io/3031))
+- [WGS84](#dem-extent-4326) ([EPSG 4326](https://epsg.io/4326))
+- [North Polar Stereographic](#dem-extent-3413) ([EPSG 3413](https://epsg.io/3413))
+- [South Polar Stereographic](#dem-extent-3031) ([EPSG 3031](https://epsg.io/3031))
 
 The DEM dataset in the WGS84 projection provides global coverage, while the DEM datasets in polar projections are only available for regions beyond 60 degrees north or south.
 
