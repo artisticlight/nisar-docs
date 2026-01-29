@@ -146,10 +146,12 @@ s3://sds-n-cumulus-prod-nisar-products/DEM/v1.2/EPSG3031/EPSG3031.vrt
 
 ## S3 File Organization
 
-While the DEM files are all included in a single collection, they are divided into different S3 prefixes based on their projection. When searching for content directly in S3, the DEM prefix includes a version prefix (v1.2), then a prefix for each different projection: 
+The DEM files are hosted in NASA's [Earthdata Cloud (EDC)](https://www.earthdata.nasa.gov/about/earthdata-cloud-evolution), in the [same S3 bucket](#nisar-s3-buckets) as the data products from the NISAR mission. While the DEM files for all three projections are all included in a single Earthdata collection ([NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1)), they are archived under projection-specific S3 prefixes in EDC. 
 
-- EPSG4326
-- EPSG3413
-- EPSG3031
+When searching for DEM files [directly in S3](#aws-s3-access-overview), the path includes the DEM prefix, followed by a version prefix (v1.2), then a prefix specific to each different projection: 
 
-Refer to @aws-s3-access-overview for more information on searching for data directly in S3.
+- `/DEM/v1.2/EPSG4326`
+- `/DEM/v1.2/EPSG3413`
+- `/DEM/v1.2/EPSG3031`
+
+Refer to @aws-s3-access-overview for more information on direct S3 access.
