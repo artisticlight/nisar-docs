@@ -86,15 +86,33 @@ Visualization of the South Polar Stereographic DEM for NISAR. This dataset provi
 
 ### DEM Naming Conventions
 
-The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. 
+The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. While the naming scheme allows for decimal degrees, product names for all tiles use `_00` in the decimal place.
 
-The WGS84 files include the latitude and longitude of the lower left corner of the tile. For example: 
-`DEM_N00_00_E005_00_C01.tif`
+The WGS84 files include the latitude and longitude of the lower left corner of the tile.
 
-The Polar Stereographic files include a reference to the 100 x 100 km tile number. For example:
-`DEM_11_00_23_00_C01.tif`
+For example: 
+`DEM_N17_00_E135_00_C01.tif`
+
+- `N17` indicates that the lower left corner of the tile is at 17°N
+- `E135` indicates that the lower left corner of the tile is at 135°E
+
+The Polar Stereographic files include a reference to the 100 x 100 km tile number. Tile coordinates are numbered from 06 to 73, with tiles 39 and 40 straddling the pole. @north-polar-grid and @south-polar-grid use the same tiling scheme and available data extent.
+
+For example:
+`DEM_11_00_23_00_C01.tif`  
+
+- `11` refers to the bottom-to-top Y coordinate of the tile
+- `23` refers tp the left-to-right X coordinate of the tile
 
 In Earthdata Search, each file is given a title that also includes the projection. These titles are based on the [S3 path](#s3-file-organization) where the files are stored.
+
+```{figure} ../../assets/north-polar-grid.png
+:label: north-polar-grid
+:alt: Visualization of the North Polar Stereographic DEM for NISAR. This dataset provides coverage north of 60°N using the NSIDC Sea Ice Polar Stereographic North projected coordinate system ([EPSG 3413](https://epsg.io/3413)), based on the WGS84 coordinate reference system.
+:align: left
+
+Visualization of the North Polar Stereographic DEM for NISAR. This dataset provides coverage north of 60°N using the NSIDC Sea Ice Polar Stereographic North projected coordinate system ([EPSG 3413](https://epsg.io/3413)), based on the WGS84 coordinate reference system.
+```
 
 ### DEM File Types
 
