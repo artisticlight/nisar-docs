@@ -86,7 +86,7 @@ Visualization of the South Polar Stereographic DEM for NISAR. This dataset provi
 
 ## DEM Naming Conventions
 
-The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. While the naming scheme allows for decimal degrees, product names for all tiles use `_00` in the decimal place.
+The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. While the naming scheme allows for two decimal places for each tile reference term, product names for all tiles use `_00` in the decimal placeholder.
 
 ### WGS84 Tiling Scheme
 
