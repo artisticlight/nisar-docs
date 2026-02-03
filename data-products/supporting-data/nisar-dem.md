@@ -141,7 +141,7 @@ While these unique titles are helpful for finding specific DEM files during the 
 Examples comparing Earthdata titles to actual filenames: 
 
 - WGS84
-  - Earthdata title:`v1-2-EPSG4326-N20-N20_E160-DEM_N23_00_E162_00_C01-tif`
+  - Earthdata title: `v1-2-EPSG4326-N20-N20_E160-DEM_N23_00_E162_00_C01-tif`
   - File name: `DEM_N23_00_E162_00_C01.tif`
 - North Polar Stereographic
   - Earthdata title: `v1-2-EPSG3413-60_40-DEM_73_00_43_00_C01-tif`
