@@ -84,30 +84,85 @@ Visualization of the South Polar Stereographic DEM for NISAR. This dataset provi
 {sup}`*` While the polar stereographic datasets have a pixel spacing of 20 meters, they are derived from the Copernicus 30-m DEM, so the resolution is coarser than the pixel spacing.
 :::
 
-### DEM Naming Conventions
+## DEM Naming Conventions
 
-The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. 
+The actual filenames of the DEM tiles are quite basic, differing only by the indication of the geographic location of the tile. While the naming scheme allows for two decimal places for each tile reference term, product names for all tiles use `_00` in the decimal placeholder.
 
-The WGS84 files include the latitude and longitude of the lower left corner of the tile. For example: 
-`DEM_N00_00_E005_00_C01.tif`
+### WGS84 Tiling Scheme
 
-The Polar Stereographic files include a reference to the 100 x 100 km tile number. For example:
-`DEM_11_00_23_00_C01.tif`
+The WGS84 files include the latitude and longitude of the lower left corner of the tile.
 
-In Earthdata Search, each file is given a title that also includes the projection. These titles are based on the [S3 path](#s3-file-organization) where the files are stored.
+For example: 
+`DEM_N17_00_E135_00_C01.tif`
 
-### DEM File Types
+- `N17` indicates that the lower left corner of the tile is at 17°N
+- `E135` indicates that the lower left corner of the tile is at 135°E
+
+### Polar Stereographic Tiling Scheme
+
+The North Polar Stereographic (@north-polar-grid) and South Polar Stereographic (@south-polar-grid) datasets have equivalent tiling schemes and use a common naming convention.
+
+The coverage for these datasets is overlain with a 100 x 100 km grid, which is used to determine the extent of each DEM file. Tile coordinates (in both the X and Y axes of the grid) are numbered from 06 to 73, with tiles 39 and 40 straddling the pole. The tile coordinates are indicated in the name of each DEM file.
+
+For example:
+`DEM_20_00_64_00_C01.tif`  
+
+- `20` refers to the bottom-to-top Y coordinate of the tile
+- `64` refers to the left-to-right X coordinate of the tile
+
+```{figure} ../../assets/north-polar-grid.png
+:label: north-polar-grid
+:alt: Gridding system for the North Polar Stereographic DEM dataset, highlighting an example tile location and its corresponding file name.
+:align: left
+
+Gridding system for the North Polar Stereographic DEM dataset. 
+```
+
+```{figure} ../../assets/south-polar-grid.png
+:label: south-polar-grid
+:alt: Gridding system for the South Polar Stereographic DEM dataset, highlighting an example tile location and its corresponding file name.
+:align: left
+
+Gridding system for the South Polar Stereographic DEM dataset.
+```
+
+:::{warning}Duplicate Names for Polar Stereographic Files
+The dataset projection is not included in the DEM file names. Because the two Polar Stereographic datasets use the same naming scheme, the same file names are present in both datasets. 
+
+Use care when downloading DEM files from both of the Polar Stereographic datasets to avoid overwriting files. 
+:::
+
+### Earthdata File Titles
+
+In [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), each file is given a title that includes the coordinate system code (EPSG number). These titles are based on the [S3 path](#s3-file-organization) where the files are stored, and results in a unique title for each file. 
+
+While these unique titles are helpful for finding specific DEM files during the search process, the actual filenames of the downloaded files only partially match these title. This is particularly important to know when working with the polar stereographic datasets, as the filenames used for the north and south polar datasets are identical. While the titles in Earthdata are all unique, the actual filenames can be the same.
+
+Examples comparing Earthdata titles to actual filenames: 
+
+- WGS84
+  - Earthdata title: `v1-2-EPSG4326-N20-N20_E160-DEM_N23_00_E162_00_C01-tif`
+  - File name: `DEM_N23_00_E162_00_C01.tif`
+- North Polar Stereographic
+  - Earthdata title: `v1-2-EPSG3413-60_40-DEM_73_00_43_00_C01-tif`
+  - File name: `DEM_73_00_43_00_C01.tif`
+- South Polar Sterographic
+  - Earthdata title: `v1-2-EPSG3031-60_40-DEM_73_00_43_00_C01-tif`
+  - File name: `DEM_73_00_43_00_C01.tif`
+
+## DEM File Types
 
 The actual DEM data is contained in tiled assemblages of Cloud Optimized GeoTIFF (COG) files, but the NISAR_DEM collection also includes [VRT](#vrt-reference-files) files. VRTs are virtual files that reference the tiled DEM COGs, allowing them to be visualized as a mosaic. <!-- #TODO: Add reference to the product spec -->
 
-#### Tiled DEM COG Files
+(tiled-dem-cog-files)=
+### Tiled DEM COG Files
 
 The DEM height values are contained in the COG files. The files are tiled to provide complete coverage for each of the [projection-based datasets](#dem-datasets) included in the DEM collection. The tiling scheme differs based on the projection, as indicated in @tbl:nisar-dem-characteristics.
 
 These files have an extension of `.tif`.
 
 (vrt-reference-files)=
-#### VRT Reference Files
+### VRT Reference Files
 
 To facilitate visualization and subsetting of the tiled DEM COG files, [VRT](https://gdal.org/en/stable/drivers/vector/vrt.html) files are available for each polarization. These VRT files are just a metadata file, and require access to the associated DEM COG files to be useful. 
 
@@ -125,9 +180,10 @@ The VRT files are more useful when interacting with the DEM files directly in th
 
 ## Finding DEM Files
 
-The DEM for NISAR files can be found in Earthdata Search by searching for "NISAR_DEM": [Find Data in Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM)
+The DEM for NISAR files can be found in Earthdata Search by searching for "NISAR_DEM".  
+[Find Data in Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM)
 
-All three DEM datasets (with their tiled GeoTIFFs and associated VRT files) are included in one [NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1) collection. They are accessible through [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), but not currently discoverable in Vertex. The projection is included in the title for each DEM file in Earthdata Search, making it easy to restrict searches to a single projection.
+All three DEM datasets (with their [tiled GeoTIFFs](#tiled-dem-cog-files) and associated [VRT files](#vrt-reference-files)) are included in one [NISAR_DEM](https://www.earthdata.nasa.gov/data/catalog/asf-nisar-dem-1) collection. They are accessible through [Earthdata Search](https://search.earthdata.nasa.gov/search?q=NISAR_DEM), but not currently discoverable in Vertex. The projection is included in the title for each DEM file in Earthdata Search, making it easy to restrict searches to a single projection.
 
 Each DEM filename gives an indication of its geographic location, which you can use to locate the tiles you need, but it is easiest to use Earthdata Search to find the necessary tiles for a specific geographic area of interest. To incorporate subsetting into a programmatic workflow, it is useful to leverage @vrt-subsetting.
 
