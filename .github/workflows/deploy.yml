@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - spanish
 
 env:
   # `BASE_URL` determines, relative to the root of the domain, the URL that your site is served from.
@@ -33,21 +34,58 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v6
-
       - uses: actions/configure-pages@v5
+
+      # Build English site from main branch
+      - uses: actions/checkout@v6
+        with:
+          ref: main
 
       - uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: environment.yml
 
-      - run: |
+      - name: Build English site
+        run: |
           myst build --html
-          sed -i -e "s|http://localhost:3000|$DOMAIN$BASE_URL|g" $(grep -RIl "http://localhost:3000" ./_build)
+          sed -i -e "s|http://localhost:3000|$DOMAIN$BASE_URL|g" $(grep -RIl "http://localhost:3000" ./_build/html) || true
+          mkdir -p _combined
+          cp -r _build/html/* _combined/
+
+      # Inject "Español" switcher link into English HTML files
+      - name: Inject language switcher into English site
+        run: |
+          ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
+          find _combined -name '*.html' -exec sed -i \
+            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b),''): p;window.location.href=b+'/es'+rest+window.location.search;\">Español</a><button class=\"myst-theme-button theme|g" \
+            {} +
+
+      # Build Spanish site from spanish branch
+      - uses: actions/checkout@v6
+        with:
+          ref: spanish
+          clean: false
+          path: _spanish_src
+
+      - name: Build Spanish site
+        run: |
+          cd _spanish_src
+          myst build --html
+          sed -i -e "s|http://localhost:3000|$DOMAIN$BASE_URL/es|g" $(grep -RIl "http://localhost:3000" ./_build/html) || true
+          mkdir -p ../_combined/es
+          cp -r _build/html/* ../_combined/es/
+
+      # Inject "English" switcher link into Spanish HTML files
+      - name: Inject language switcher into Spanish site
+        run: |
+          ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
+          find _combined/es -name '*.html' -exec sed -i \
+            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b+'/es'),''): p.replace(/^\\/es/,'');window.location.href=b+rest+window.location.search;\">English</a><button class=\"myst-theme-button theme|g" \
+            {} +
 
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: './_build/html'
+          path: './_combined'
 
       - id: deployment
         uses: actions/deploy-pages@v4
