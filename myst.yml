@@ -12,22 +12,22 @@ project:
 #        - file: data-availability/observation-scenario.md
     - file: data-products/products-overview.md
       children:
-        - title: Geophysical Products (Level 3)
+        - title: Productos Geofísicos (Nivel 3)
           children:
             - file: data-products/level-3/sme2.md
-        - title: Geocoded Products (Level 2)
+        - title: Productos Geocodificados (Nivel 2)
           children:
             - file: data-products/level-2/gslc.md
             - file: data-products/level-2/goff.md
             - file: data-products/level-2/gunw.md
             - file: data-products/level-2/gcov.md
-        - title: Range-Doppler Products (Level 1)
+        - title: Productos Range-Doppler (Nivel 1)
           children:
             - file: data-products/level-1/rslc.md
             - file: data-products/level-1/rifg.md
             - file: data-products/level-1/roff.md
             - file: data-products/level-1/runw.md
-        - title: Unfocused Raw Products (Level 0)
+        - title: Productos Brutos Sin Enfocar (Nivel 0)
           children:
             - file: data-products/level-0/rrsd.md
 #        - file: data-products/urgent-response.md
@@ -37,7 +37,7 @@ project:
             - file: data-products/supporting-data/nisar-dem.md
         - file: data-products/data-format.md
         - file: data-products/metadata.md
-        - title: Documentation
+        - title: Documentación
           children:
             - file: data-products/product-specification.md
             - file: data-products/atbd.md
@@ -61,41 +61,41 @@ project:
       children:
         - file: applications/amplitude.md
         - file: applications/phase.md
-    - title: User Support
+    - title: Soporte al Usuario
       children:
         - file: user-support/documents.md
         - file: user-support/earthdata-forum.md
-    - title: Appendices
+    - title: Apéndices
       children:
         - file: appendices/acronyms.md
         - file: appendices/glossary.md
   abbreviations:
-    AWS: Amazon Web Services
-    DAAC: Distributed Active Archive Center
-    DEM: Digital Elevation Model
-    EDC: Earthdata Cloud
-    EDL: Earthdata Login
-    ESDIS: Earth Science Data and Information System
-    GCOV: Geocoded Polarimetric Covariance
-    GOFF: Geocoded Pixel Offsets
-    GSLC: Geocoded Single Look Complex
-    GUNW: Geocoded Unwrapped Interferogram
-    NISAR: NASA-ISRO Synthetic Aperture Radar
-    NRB: Normalized Radar Backscatter
-    RTC: Radiometric Terrain Correction; Radiometrically Terrain-Corrected
-    SAR: Synthetic Aperture Radar
-    SNR: Signal-to-Noise Ratio
-    UTM: Universal Transverse Mercator
-    RIFG: Range Doppler Wrapped Interferogram
-    ROFF: Range Doppler Pixel Offsets
-    RRSD: Radar Raw Signal Data
-    RSLC: Range Doppler Single Look Complex
-    RUNW: Range Doppler Unwrapped Interferogram
+    AWS: Servicios Web de Amazon
+    DAAC: Centro de Archivo Activo Distribuido
+    DEM: Modelo Digital de Elevación
+    EDC: Nube Earthdata
+    EDL: Inicio de Sesión Earthdata
+    ESDIS: Sistema de Datos e Información de Ciencias de la Tierra
+    GCOV: Covarianza Polarimétrica Geocodificada
+    GOFF: Desplazamientos de Píxeles Geocodificados
+    GSLC: Complejo de Vista Única Geocodificado
+    GUNW: Interferograma Geocodificado Desenvuelto
+    NISAR: Radar de Apertura Sintética NASA-ISRO
+    NRB: Retrodispersión Radar Normalizada
+    RTC: Corrección Radiométrica del Terreno
+    SAR: Radar de Apertura Sintética
+    SNR: Relación Señal-Ruido
+    UTM: Transversa Universal de Mercator
+    RIFG: Interferograma Envuelto Range Doppler
+    ROFF: Desplazamientos de Píxeles Range Doppler
+    RRSD: Datos de Señal Bruta de Radar
+    RSLC: Complejo de Vista Única Range Doppler
+    RUNW: Interferograma Desenvuelto Range Doppler
 site:
   template: book-theme
   options:
     favicon: favicon.ico
-    logo_text: 'NISAR Data User Guide'
+    logo_text: 'Guía de Datos de Usuario NISAR'
     analytics_google: G-F5XFWH0KYR
     style: language-switcher.css
   parts:
