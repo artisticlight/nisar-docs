@@ -76,7 +76,7 @@ Use the "Granule ID" filter to perform advanced searches, including wildcard mat
 
 ```{figure} ../assets/earthdata-search-granule-search.png
 :label: earthdata-search-granule-search
-:alt: Screenshot showing a Granule ID search using `*_QP*` to find quad polarity GCOV products.   
+:alt: Screenshot showing a Granule ID search using `*_QP*` to find quad-pol GCOV products.   
 :align: center
 
 Filter using the Granule ID filter set to `*_QP*` to find all quad-pol products. 
