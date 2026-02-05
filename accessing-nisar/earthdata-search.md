@@ -39,7 +39,7 @@ To search for a specific product type, input the corresponding short name from @
 
 :::
 
-To search for all NISAR data products, use the filter options on the left-hand panel, as shown in @earthdata-search-nisar-filters. Set the "platform" filter to `NISAR` and the "Processing Level" filter to the desired product level.  The results will update to display all NISAR product data types that fit the selected criteria. 
+To search for all NISAR data products, use the filter options on the left-hand panel, as shown in @earthdata-search-nisar-filters. Set the "platform" to `NISAR` and the "Processing Level" to the desired product level.  The results will update to display all NISAR product data types that fit the selected criteria. 
 
 ```{figure} ../assets/earthdata-search-nisar-filters.png
 :label: earthdata-search-nisar-filters
