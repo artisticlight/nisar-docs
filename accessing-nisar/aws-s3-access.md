@@ -6,7 +6,7 @@ short_title: AWS S3 Access
 # Direct AWS S3 Access
 
 (aws-s3-access-overview)=
-## Overview
+## S3 Access Overview
 
 All NISAR data is hosted in [NASA's Earthdata Cloud (EDC)](https://www.earthdata.nasa.gov/about/earthdata-cloud-evolution), which leverages Amazon Web Services (AWS) infrastructure. As such, AWS Simple Storage Service (S3) access methods can be used to interact with NISAR datasets. 
 

@@ -4,10 +4,6 @@ project:
   github: https://github.com/ua-asf/nisar-docs
   bibliography:
     - nisar-docs.bib
-  numbering:
-    figure:
-      continue: true
-      enabled: true
   toc:
     - file: index.md
     - file: about-nisar/nisar-intro.md
@@ -37,6 +33,8 @@ project:
 #        - file: data-products/urgent-response.md
         - file: data-products/naming-conventions.md
         - file: data-products/supporting-products.md
+          children:
+            - file: data-products/supporting-data/nisar-dem.md
         - file: data-products/data-format.md
         - file: data-products/metadata.md
         - title: Documentation
