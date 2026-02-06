@@ -27,19 +27,44 @@
   }
 
   function createLanguageIcon() {
-    // Material Symbols "translate" icon (filled) — matches companion app style
+    // Stroke-based translate icon for a lighter, more delicate look
     var svgNS = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('xmlns', svgNS);
-    svg.setAttribute('viewBox', '0 1 24 22');
-    svg.setAttribute('fill', 'currentColor');
-    svg.setAttribute('width', '36');
-    svg.setAttribute('height', '33');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.4');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('width', '34');
+    svg.setAttribute('height', '34');
 
-    var p = document.createElementNS(svgNS, 'path');
-    p.setAttribute('d', 'M12.65 15.67l-2.34-2.33.07-.07A19.6 19.6 0 0 0 14.42 6H17V5h-7V3.5h-1V5H1v1h11.58C12 7.92 11 9.82 9.57 11.43c-.94-.99-1.73-2.08-2.36-3.26h-1c.7 1.37 1.58 2.67 2.64 3.88L3.78 17.1l.72.72 5.07-5.07 3.15 3.15.93-2.55zm5.35-4.17h-1L13 22h1l1.12-3h5.75L22 22h1l-5-10.5zm-3.12 6.5L16.5 13.9 18.12 18h-3.24z');
+    // 文 character strokes (left side)
+    var lines = [
+      'M2 5h12',      // top horizontal bar
+      'M8 2v3',       // vertical stem
+      'M5 8c1.3 3 3.2 5.6 5.5 7.5', // left curve
+      'M12.5 5c-.7 2.8-2 5.5-3.8 7.8', // right curve
+      'M3.5 18l5-5'   // diagonal
+    ];
+    for (var i = 0; i < lines.length; i++) {
+      var p = document.createElementNS(svgNS, 'path');
+      p.setAttribute('d', lines[i]);
+      svg.appendChild(p);
+    }
 
-    svg.appendChild(p);
+    // A character strokes (right side)
+    var aLines = [
+      'M14 21l4-11 4 11', // A shape
+      'M15.5 17h5'        // A crossbar
+    ];
+    for (var j = 0; j < aLines.length; j++) {
+      var p2 = document.createElementNS(svgNS, 'path');
+      p2.setAttribute('d', aLines[j]);
+      svg.appendChild(p2);
+    }
+
     return svg;
   }
 
