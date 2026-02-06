@@ -73,6 +73,15 @@ jobs:
           mkdir -p ../_combined/es
           cp -r _build/html/* ../_combined/es/
 
+      # Rewrite absolute asset paths in Spanish HTML so they resolve under /es/
+      - name: Fix asset paths in Spanish site
+        run: |
+          find _combined/es -name '*.html' -o -name '*.js' | xargs sed -i \
+            -e "s|\"/build/|\"/es/build/|g" \
+            -e "s|\"/myst_assets_folder/|\"/es/myst_assets_folder/|g" \
+            -e "s|'/build/|'/es/build/|g" \
+            -e "s|'/myst_assets_folder/|'/es/myst_assets_folder/|g"
+
       # Inject language switcher into Spanish HTML files
       - name: Inject language switcher into Spanish site
         run: |
