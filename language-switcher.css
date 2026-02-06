@@ -1,6 +1,7 @@
 .lang-switcher {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   margin-right: 0.75rem;
   padding: 0.25rem 0.75rem;
   border: 1px solid;
