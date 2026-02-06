@@ -34,9 +34,9 @@
     svg.setAttribute('viewBox', '0 0 24 24');
     svg.setAttribute('fill', 'none');
     svg.setAttribute('stroke', 'currentColor');
-    svg.setAttribute('stroke-width', '1.5');
-    svg.setAttribute('width', '22');
-    svg.setAttribute('height', '22');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('width', '24');
+    svg.setAttribute('height', '24');
 
     var path1 = document.createElementNS(svgNS, 'path');
     path1.setAttribute('d', 'M12.913 17H20.087M12.913 17L11 21M12.913 17L16.5 8.885L20.087 17M20.087 17L22 21');
