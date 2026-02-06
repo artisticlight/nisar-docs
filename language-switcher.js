@@ -37,6 +37,8 @@
   // Hydration is deferred via requestIdleCallback/setTimeout, so it runs
   // after this script. We use setInterval to keep re-adding the switcher
   // until hydration is done and React stops removing it.
+  // The element is appended to <body> with position:fixed CSS, so it sits
+  // outside the React component tree's layout flow.
   var attempts = 0;
   var interval = setInterval(function () {
     if (!document.querySelector('.lang-switcher')) {
