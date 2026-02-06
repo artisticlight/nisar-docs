@@ -27,29 +27,19 @@
   }
 
   function createLanguageIcon() {
-    // SVG translate icon built with DOM methods (no innerHTML)
+    // Material Symbols "translate" icon (filled) — matches companion app style
     var svgNS = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('xmlns', svgNS);
     svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('fill', 'none');
-    svg.setAttribute('stroke', 'currentColor');
-    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('fill', 'currentColor');
     svg.setAttribute('width', '24');
     svg.setAttribute('height', '24');
 
-    var path1 = document.createElementNS(svgNS, 'path');
-    path1.setAttribute('d', 'M12.913 17H20.087M12.913 17L11 21M12.913 17L16.5 8.885L20.087 17M20.087 17L22 21');
-    path1.setAttribute('stroke-linecap', 'round');
-    path1.setAttribute('stroke-linejoin', 'round');
+    var p = document.createElementNS(svgNS, 'path');
+    p.setAttribute('d', 'M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z');
 
-    var path2 = document.createElementNS(svgNS, 'path');
-    path2.setAttribute('d', 'M2 5H8M14 5H10.5M8 5H10.5M8 5V3M10.5 5C9.6 7.8 8 10.2 6 12.1M10 15C9 14.1 7.8 13 6 12.1M6 12.1C4.8 11.3 3.5 9.2 3 8');
-    path2.setAttribute('stroke-linecap', 'round');
-    path2.setAttribute('stroke-linejoin', 'round');
-
-    svg.appendChild(path1);
-    svg.appendChild(path2);
+    svg.appendChild(p);
     return svg;
   }
 
