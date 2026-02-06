@@ -52,11 +52,14 @@ jobs:
           mkdir -p _combined
           cp -r _build/html/* _combined/
 
-      # Inject "Español" switcher script into English HTML files
+      # Inject language switcher into English HTML files
       - name: Inject language switcher into English site
         run: |
-          LANG_SCRIPT='<script>(function(){var b="'"$BASE_URL"'";function addSwitcher(){var t=document.querySelector(".myst-theme-button");if(!t||document.querySelector(".lang-switcher"))return;var a=document.createElement("a");a.className="lang-switcher";a.textContent="Español";a.href="javascript:void(0)";a.onclick=function(){var p=window.location.pathname;var rest=b?p.replace(new RegExp("^"+b),""):p;window.location.href=b+"/es"+rest+window.location.search;};t.parentNode.insertBefore(a,t);}var o=new MutationObserver(function(){addSwitcher();});o.observe(document.body,{childList:true,subtree:true});addSwitcher();})()</script>'
-          find _combined -name '*.html' -exec sed -i "s|</body>|${LANG_SCRIPT}</body>|g" {} +
+          cp language-switcher.js _combined/language-switcher.js
+          find _combined -name '*.html' | while read f; do
+            sed -i -e "s|<html |<html data-lang-switcher=\"es\" data-base-url=\"$BASE_URL\" |" "$f"
+            sed -i -e "s|</body>|<script src=\"$BASE_URL/language-switcher.js\"></script></body>|" "$f"
+          done
 
       # Build Spanish site from spanish branch
       - uses: actions/checkout@v6
@@ -73,11 +76,14 @@ jobs:
           mkdir -p ../_combined/es
           cp -r _build/html/* ../_combined/es/
 
-      # Inject "English" switcher script into Spanish HTML files
+      # Inject language switcher into Spanish HTML files
       - name: Inject language switcher into Spanish site
         run: |
-          LANG_SCRIPT='<script>(function(){var b="'"$BASE_URL"'";function addSwitcher(){var t=document.querySelector(".myst-theme-button");if(!t||document.querySelector(".lang-switcher"))return;var a=document.createElement("a");a.className="lang-switcher";a.textContent="English";a.href="javascript:void(0)";a.onclick=function(){var p=window.location.pathname;var rest=b?p.replace(new RegExp("^"+b+"/es"),""):p.replace(/^\/es/,"");window.location.href=b+rest+window.location.search;};t.parentNode.insertBefore(a,t);}var o=new MutationObserver(function(){addSwitcher();});o.observe(document.body,{childList:true,subtree:true});addSwitcher();})()</script>'
-          find _combined/es -name '*.html' -exec sed -i "s|</body>|${LANG_SCRIPT}</body>|g" {} +
+          cp language-switcher.js _combined/es/language-switcher.js
+          find _combined/es -name '*.html' | while read f; do
+            sed -i -e "s|<html |<html data-lang-switcher=\"en\" data-base-url=\"$BASE_URL\" |" "$f"
+            sed -i -e "s|</body>|<script src=\"$BASE_URL/es/language-switcher.js\"></script></body>|" "$f"
+          done
 
       - uses: actions/upload-pages-artifact@v4
         with:
