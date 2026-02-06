@@ -1,17 +1,15 @@
-# NISAR Data User Guide
+# Guía de Datos de Usuario NISAR
 
-The joint NASA/ISRO Synthetic Aperture Radar (NISAR) platform supports an enhanced understanding of changes occurring on Earth through time. Data from the NISAR mission can be used to monitor ecosystems, ice masses, vegetation biomass, sea level, groundwater dynamics, geophysical processes, and natural hazards.
+La plataforma conjunta de Radar de Apertura Sintética NASA/ISRO (NISAR) permite una mejor comprensión de los cambios que ocurren en la Tierra a lo largo del tiempo. Los datos de la misión NISAR pueden utilizarse para monitorear ecosistemas, masas de hielo, biomasa vegetal, nivel del mar, dinámica de aguas subterráneas, procesos geofísicos y peligros naturales.
 
-NISAR's dual-band radar systematically images the Earth's surface, regardless of light or cloud conditions, and can measure surface deformation on the centimeter scale.
+El radar de doble banda de NISAR captura imágenes sistemáticas de la superficie terrestre, independientemente de las condiciones de luz o nubosidad, y puede medir la deformación de la superficie a escala centimétrica.
 
-All NISAR science data is freely available and open to the public, consistent with the long-standing NASA Earth Science open data policy.
+Todos los datos científicos de NISAR están disponibles de forma gratuita y abierta al público, de acuerdo con la política de datos abiertos de larga trayectoria de NASA Earth Science.
 
-This guide aims to help those who research and monitor the Earth find all the information they need to know about accessing and working with NISAR data in one place. 
+Esta guía tiene como objetivo ayudar a quienes investigan y monitorean la Tierra a encontrar toda la información que necesitan sobre el acceso y uso de los datos de NISAR en un solo lugar.
 
 <a href="https://nisar.jpl.nasa.gov/resources/206/nisar-satellite-in-earth-orbit-artists-concept/">
-<img id="nisar-satellite" src="assets/nisar_satellite.jpg" alt="NISAR Satellite Image" title="NISAR Satellite in Earth Orbit (Artist's Concept)">
+<img id="nisar-satellite" src="assets/nisar_satellite.jpg" alt="Imagen del Satélite NISAR" title="Satélite NISAR en Órbita Terrestre (Concepto Artístico)">
 </a>
 
-_NISAR Satellite in Earth Orbit (Artist's Concept). Credit: NASA/JPL-Caltech_ 
-
-
+_Satélite NISAR en Órbita Terrestre (Concepto Artístico). Crédito: NASA/JPL-Caltech_
