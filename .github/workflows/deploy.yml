@@ -57,7 +57,7 @@ jobs:
         run: |
           ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
           find _combined -name '*.html' -exec sed -i \
-            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b),''): p;window.location.href=b+'/es'+rest+window.location.search;\">Español</a><button class=\"myst-theme-button theme|g" \
+            "s|</button><div class=\"block sm:hidden\">|</button><a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b),''): p;window.location.href=b+'/es'+rest+window.location.search;\">Español</a><div class=\"block sm:hidden\">|g" \
             {} +
 
       # Build Spanish site from spanish branch
@@ -80,7 +80,7 @@ jobs:
         run: |
           ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
           find _combined/es -name '*.html' -exec sed -i \
-            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b+'/es'),''): p.replace(/^\\/es/,'');window.location.href=b+rest+window.location.search;\">English</a><button class=\"myst-theme-button theme|g" \
+            "s|</button><div class=\"block sm:hidden\">|</button><a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b+'/es'),''): p.replace(/^\\/es/,'');window.location.href=b+rest+window.location.search;\">English</a><div class=\"block sm:hidden\">|g" \
             {} +
 
       - uses: actions/upload-pages-artifact@v4
