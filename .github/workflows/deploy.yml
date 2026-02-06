@@ -73,14 +73,12 @@ jobs:
           mkdir -p ../_combined/es
           cp -r _build/html/* ../_combined/es/
 
-      # Rewrite absolute asset paths in Spanish HTML so they resolve under /es/
-      - name: Fix asset paths in Spanish site
+      # Merge Spanish assets into the root build directory so /build/ paths
+      # resolve the same way for both sites (Remix handles BASE_URL at runtime)
+      - name: Merge Spanish assets into root
         run: |
-          find _combined/es -name '*.html' -o -name '*.js' | xargs sed -i \
-            -e "s|\"/build/|\"/es/build/|g" \
-            -e "s|\"/myst_assets_folder/|\"/es/myst_assets_folder/|g" \
-            -e "s|'/build/|'/es/build/|g" \
-            -e "s|'/myst_assets_folder/|'/es/myst_assets_folder/|g"
+          cp -rn _combined/es/build/* _combined/build/ 2>/dev/null || true
+          cp -rn _combined/es/myst_assets_folder/* _combined/myst_assets_folder/ 2>/dev/null || true
 
       # Inject language switcher into Spanish HTML files
       - name: Inject language switcher into Spanish site
