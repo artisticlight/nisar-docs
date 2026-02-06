@@ -52,13 +52,11 @@ jobs:
           mkdir -p _combined
           cp -r _build/html/* _combined/
 
-      # Inject "Español" switcher link into English HTML files
+      # Inject "Español" switcher script into English HTML files
       - name: Inject language switcher into English site
         run: |
-          ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
-          find _combined -name '*.html' -exec sed -i \
-            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b),''): p;window.location.href=b+'/es'+rest+window.location.search;\">Español</a><button class=\"myst-theme-button theme|g" \
-            {} +
+          LANG_SCRIPT='<script>(function(){var b="'"$BASE_URL"'";function addSwitcher(){var t=document.querySelector(".myst-theme-button");if(!t||document.querySelector(".lang-switcher"))return;var a=document.createElement("a");a.className="lang-switcher";a.textContent="Español";a.href="javascript:void(0)";a.onclick=function(){var p=window.location.pathname;var rest=b?p.replace(new RegExp("^"+b),""):p;window.location.href=b+"/es"+rest+window.location.search;};t.parentNode.insertBefore(a,t);}var o=new MutationObserver(function(){addSwitcher();});o.observe(document.body,{childList:true,subtree:true});addSwitcher();})()</script>'
+          find _combined -name '*.html' -exec sed -i "s|</body>|${LANG_SCRIPT}</body>|g" {} +
 
       # Build Spanish site from spanish branch
       - uses: actions/checkout@v6
@@ -75,13 +73,11 @@ jobs:
           mkdir -p ../_combined/es
           cp -r _build/html/* ../_combined/es/
 
-      # Inject "English" switcher link into Spanish HTML files
+      # Inject "English" switcher script into Spanish HTML files
       - name: Inject language switcher into Spanish site
         run: |
-          ESCAPED_BASE=$(echo "$BASE_URL" | sed 's|/|\\/|g')
-          find _combined/es -name '*.html' -exec sed -i \
-            "s|<button class=\"myst-theme-button theme|<a class=\"lang-switcher\" href=\"javascript:void(0)\" onclick=\"var p=window.location.pathname;var b='${ESCAPED_BASE}';var rest=b?p.replace(new RegExp('^'+b+'/es'),''): p.replace(/^\\/es/,'');window.location.href=b+rest+window.location.search;\">English</a><button class=\"myst-theme-button theme|g" \
-            {} +
+          LANG_SCRIPT='<script>(function(){var b="'"$BASE_URL"'";function addSwitcher(){var t=document.querySelector(".myst-theme-button");if(!t||document.querySelector(".lang-switcher"))return;var a=document.createElement("a");a.className="lang-switcher";a.textContent="English";a.href="javascript:void(0)";a.onclick=function(){var p=window.location.pathname;var rest=b?p.replace(new RegExp("^"+b+"/es"),""):p.replace(/^\/es/,"");window.location.href=b+rest+window.location.search;};t.parentNode.insertBefore(a,t);}var o=new MutationObserver(function(){addSwitcher();});o.observe(document.body,{childList:true,subtree:true});addSwitcher();})()</script>'
+          find _combined/es -name '*.html' -exec sed -i "s|</body>|${LANG_SCRIPT}</body>|g" {} +
 
       - uses: actions/upload-pages-artifact@v4
         with:
